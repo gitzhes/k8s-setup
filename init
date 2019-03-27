@@ -1,0 +1,12 @@
+kubeadm init --config=kubeadm-config.yaml
+
+cp admin.conf
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+mkdir -p /etc/kubernetes/pki/etcd/
+
+--experimental-control-plane
+
+iptables -t nat -A PREROUTING -d 172.16.0.1 -p tcp --dport 443 -j DNAT --to-destination 127.0.0.1
+

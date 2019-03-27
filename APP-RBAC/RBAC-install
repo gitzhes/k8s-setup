@@ -1,0 +1,3 @@
+kubectl create serviceaccount app-admin --namespace kube-system
+kubectl crate -f app-addmin-clusterrolebinding.yaml
+
